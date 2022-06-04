@@ -44,7 +44,7 @@ module.exports.CallbackHandler = (bot, db) => {
     if (callbackQuery.data === 'crypto') {
       session.step = 'end'
       session.payments = 'Криптовалюта'
-      ctx.deleteMessage()
+      await ctx.deleteMessage()
       await ctx.replyWithHTML(`${messages.end}\n\n<b>Ваши данные:</b>\nВаше имя: ${session.name}\nВаш номер телефона: ${session.phone}\nВаш email: ${session.email}\nСпособ оплаты: ${session.payments}`, InlineKeyboard.back())
 
       //Записываем данные юзера в базу даных
